@@ -1,7 +1,8 @@
-package com.bibim.purpur
+package com.bibim.purpur.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bibim.purpur.R
 
 class MainActivity : AppCompatActivity() {
 
