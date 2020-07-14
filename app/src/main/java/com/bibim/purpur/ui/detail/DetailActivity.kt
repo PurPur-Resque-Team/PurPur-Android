@@ -1,12 +1,15 @@
 package com.bibim.purpur.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bibim.purpur.R
+import com.bibim.purpur.base.BaseActivity
+import com.bibim.purpur.databinding.ActivityDetailBinding
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity<ActivityDetailBinding>() {
+    override val layoutResID: Int = R.layout.activity_detail
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+
     }
 }
