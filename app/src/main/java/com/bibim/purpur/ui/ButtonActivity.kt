@@ -6,6 +6,7 @@ import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityButtonBinding
 import com.bibim.purpur.ui.detail.DetailActivity
+import com.bibim.purpur.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_button.*
 
 class ButtonActivity : BaseActivity<ActivityButtonBinding>() {
