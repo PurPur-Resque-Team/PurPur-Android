@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_bg"
+        tools:context=".ui.detail.DetailActivity">
+
+        <ImageView
+            android:id="@+id/act_detail_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/act_detail_tv_animal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="66dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="3sp"
+            android:shadowColor="#4d274a11"
+            android:shadowRadius="3"
+            android:text="토끼"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_animal_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:src="@drawable/img_rabbit_clear"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintStart_toStartOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintTop_toBottomOf="@id/act_detail_tv_animal_name" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="19dp"
+            android:src="@drawable/btn_back"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_iv_gauge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/img_gauge_rabbit"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintEnd_toStartOf="@id/act_detail_iv_question"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_animal_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_gauge_rabbit_head"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_iv_gauge"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_mission_back"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_mission_background"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_animal_img"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_iv_gauge"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_animal_img" />
+
+        <TextView
+            android:id="@+id/act_detail_tv_mission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="7.3sp"
+            android:text="미션카드를 선택해 주세요."
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_mission_card_list"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_card_back_second"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/act_detail_iv_card_back_first"
+            android:layout_width="84dp"
+            android:layout_height="77dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/bg_card_background_first"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_card_back_second"
+            android:layout_width="69dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_card_background_second"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
