@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="66dp"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/font_bmjua"
             android:lineSpacingExtra="3sp"
             android:shadowColor="#4d274a11"
             android:shadowRadius="3"
@@ -100,14 +101,17 @@
             android:background="@drawable/bg_mission_background"
             app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_animal_img"
             app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/act_detail_iv_iv_gauge"
-            app:layout_constraintTop_toTopOf="@id/act_detail_iv_animal_img" />
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_animal_img"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/act_detail_tv_mission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/font_bmjua"
             android:lineSpacingExtra="7.3sp"
             android:text="미션카드를 선택해 주세요."
             android:textColor="#ffffff"
@@ -186,6 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="3dp"
+            android:fontFamily="@font/font_bmjua"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="3sp"
             android:text="미션카드"
