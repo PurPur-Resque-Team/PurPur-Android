@@ -25,6 +25,7 @@
 
         <TextView
             android:id="@+id/act_detail_tv_animal_name"
+            android:fontFamily="@font/font_bmjua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="66dp"
@@ -109,6 +110,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="7.3sp"
+            android:fontFamily="@font/font_bmjua"
             android:text="미션카드를 선택해 주세요."
             android:textColor="#ffffff"
             android:textSize="22sp"
@@ -183,6 +185,7 @@
 
         <TextView
             android:id="@+id/act_detail_tv_mission_card"
+            android:fontFamily="@font/font_bmjua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="3dp"
