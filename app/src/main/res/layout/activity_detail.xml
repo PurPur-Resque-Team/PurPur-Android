@@ -25,11 +25,11 @@
 
         <TextView
             android:id="@+id/act_detail_tv_animal_name"
-            android:fontFamily="@font/font_bmjua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="66dp"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/font_bmjua"
             android:lineSpacingExtra="3sp"
             android:shadowColor="#4d274a11"
             android:shadowRadius="3"
@@ -44,8 +44,8 @@
             android:id="@+id/act_detail_iv_animal_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
             android:src="@drawable/img_rabbit_clear"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
             app:layout_constraintEnd_toEndOf="@id/act_detail_tv_animal_name"
             app:layout_constraintStart_toStartOf="@id/act_detail_tv_animal_name"
             app:layout_constraintTop_toBottomOf="@id/act_detail_tv_animal_name" />
@@ -60,48 +60,72 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
 
-        <ImageView
-            android:id="@+id/act_detail_iv_iv_gauge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/img_gauge_rabbit"
-            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
-            app:layout_constraintEnd_toStartOf="@id/act_detail_iv_question"
-            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
-
-        <ProgressBar
-            android:id="@+id/progressbar"
-            android:progressDrawable="@drawable/progressbar"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/act_detail_cl_gauge"
             android:layout_width="0dp"
-            android:max="100"
-            android:progress="20"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back"
+            android:layout_marginEnd="29dp"
             app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
-            app:layout_constraintStart_toEndOf="@id/act_detail_iv_animal_head"
-            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_iv_gauge"/>
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintEnd_toStartOf="@id/act_detail_iv_question"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back">
 
-        <ImageView
-            android:id="@+id/act_detail_iv_animal_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_gauge_rabbit_head"
-            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
-            app:layout_constraintStart_toStartOf="@id/act_detail_iv_iv_gauge"
-            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:max="100"
+                android:progress="20"
+                android:progressDrawable="@drawable/progress_horizon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/act_detail_iv_animal_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_gauge_rabbit_head"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/act_detail_view_first"
+                android:layout_width="1dp"
+                android:layout_height="11dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/act_detail_view_second"
+                android:layout_width="1dp"
+                android:layout_height="11dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.66"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <ImageView
             android:id="@+id/act_detail_iv_mission_back"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/bg_mission_background"
+            android:layout_marginLeft="13dp"
             app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_animal_img"
             app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
-            app:layout_constraintStart_toStartOf="@id/act_detail_iv_iv_gauge"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_animal_img"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_animal_img" />
 
         <TextView
@@ -120,13 +144,14 @@
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back" />
 
         <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scrollbars="none"
             android:background="@drawable/bg_mission_card_list"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
-            app:layout_constraintStart_toEndOf="@id/act_detail_iv_card_back_second"
             app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_card_back_second"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first">
 
             <LinearLayout
@@ -134,26 +159,31 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/act_detail_iv_recycle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_card_recycle" />
 
                 <ImageView
+                    android:id="@+id/act_detail_iv_electric"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_card_electric" />
 
                 <ImageView
+                    android:id="@+id/act_detail_iv_water"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_card_water" />
 
                 <ImageView
+                    android:id="@+id/act_detail_iv_food"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_card_food" />
 
                 <ImageView
+                    android:id="@+id/act_detail_iv_trash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_card_trash" />
@@ -185,10 +215,10 @@
 
         <TextView
             android:id="@+id/act_detail_tv_mission_card"
-            android:fontFamily="@font/font_bmjua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="3dp"
+            android:fontFamily="@font/font_bmjua"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="3sp"
             android:text="미션카드"
