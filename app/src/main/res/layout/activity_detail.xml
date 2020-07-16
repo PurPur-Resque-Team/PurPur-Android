@@ -25,11 +25,11 @@
 
         <TextView
             android:id="@+id/act_detail_tv_animal_name"
-            android:fontFamily="@font/font_bmjua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="66dp"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/font_bmjua"
             android:lineSpacingExtra="3sp"
             android:shadowColor="#4d274a11"
             android:shadowRadius="3"
@@ -215,10 +215,10 @@
 
         <TextView
             android:id="@+id/act_detail_tv_mission_card"
-            android:fontFamily="@font/font_bmjua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="3dp"
+            android:fontFamily="@font/font_bmjua"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="3sp"
             android:text="미션카드"
