@@ -134,12 +134,13 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_bmjua"
             android:textSize="18sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/act_detail_iv_mission_back"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
             android:textColor="#ffffff"
             android:lineSpacingExtra="11.3sp"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_mission_img"
             android:gravity="center_horizontal"
             android:text="부모님과 함께 분리수거 하기" />
 
@@ -150,8 +151,20 @@
             app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="18dp"
-            android:src="@drawable/img_card_trash"/>
+            android:src="@drawable/trash"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_mission_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_mission_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_done"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_mission_img"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_tv_mission_text"
+            app:layout_constraintStart_toStartOf="@id/act_detail_tv_mission_text" />
+
         <TextView
             android:id="@+id/act_detail_tv_mission"
             android:layout_width="wrap_content"
@@ -167,54 +180,28 @@
             app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back" />
 
-        <HorizontalScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/horizontalScrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/bg_mission_card_list"
-            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
             app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
             app:layout_constraintStart_toEndOf="@id/act_detail_iv_card_back_second"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/act_detail_iv_recycle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_card_recycle" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/act_detail_iv_electric"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_card_electric" />
-
-                <ImageView
-                    android:id="@+id/act_detail_iv_water"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_card_water" />
-
-                <ImageView
-                    android:id="@+id/act_detail_iv_food"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_card_food" />
-
-                <ImageView
-                    android:id="@+id/act_detail_iv_trash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_card_trash" />
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/act_detail_iv_card_back_first"
@@ -252,6 +239,8 @@
             app:layout_constraintEnd_toEndOf="@id/act_detail_iv_card_back_first"
             app:layout_constraintStart_toStartOf="@id/act_detail_iv_card_back_first"
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
