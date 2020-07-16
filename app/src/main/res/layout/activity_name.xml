@@ -1,9 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.name.NameActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7ed2ff"
+        tools:context=".ui.name.NameActivity">
+
+        <TextView
+            android:id="@+id/act_name_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/font_bmjua"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="3sp"
+            android:shadowColor="#4d274a11"
+            android:shadowRadius="3"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="아이의 이름을 알려주세요." />
+
+        <TextView
+            android:id="@+id/act_name_tv_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/font_bmjua"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="14sp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/act_name_tv_title"
+            tools:text="섬을 구조해 줄 대원의 이름을 입력해주세요." />
+
+        <EditText
+            android:id="@+id/act_name_et_name"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:background="@drawable/bg_et_child_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/act_name_tv_sub_title"
+            app:layout_constraintStart_toStartOf="@id/act_name_tv_sub_title" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
