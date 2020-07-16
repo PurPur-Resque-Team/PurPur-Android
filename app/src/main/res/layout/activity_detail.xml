@@ -129,6 +129,22 @@
             app:layout_constraintTop_toTopOf="@id/act_detail_iv_animal_img" />
 
         <TextView
+            android:id="@+id/act_detail_tv_mission_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bmjua"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="11.3sp"
+            android:gravity="center_horizontal"
+            tools:text="부모님과 함께 분리수거 하기"
+            />
+
+        <TextView
             android:id="@+id/act_detail_tv_mission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

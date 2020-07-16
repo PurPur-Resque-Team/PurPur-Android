@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
 abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
-    private lateinit var viewDataBinding: T
+    lateinit var viewDataBinding: T
 
     abstract val layoutResID: Int
 

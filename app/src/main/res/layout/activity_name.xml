@@ -28,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="아이의 이름을 알려주세요." />
+            android:text="아이의 이름을 알려주세요." />
 
         <TextView
             android:id="@+id/act_name_tv_sub_title"
@@ -43,14 +43,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/act_name_tv_title"
-            tools:text="섬을 구조해 줄 대원의 이름을 입력해주세요." />
+            android:text="섬을 구조해 줄 대원의 이름을 입력해주세요." />
 
         <ImageView
-            android:id="@+id/act_name_iv_"
+            android:id="@+id/act_name_iv_child"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:src="@drawable/img_character"
+            app:layout_constraintBottom_toTopOf="@+id/act_name_et_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/act_name_tv_sub_title" />
@@ -59,11 +59,29 @@
             android:id="@+id/act_name_et_name"
             android:layout_width="0dp"
             android:layout_height="43dp"
+            android:layout_marginBottom="95dp"
+            android:fontFamily="@font/font_bmjua"
+            android:gravity="center"
+            android:lineSpacingExtra="6sp"
+            android:maxLength="9"
+            android:textColor="#5d5757"
+            android:textSize="21sp"
             android:background="@drawable/bg_et_child_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/act_name_tv_sub_title"
             app:layout_constraintStart_toStartOf="@id/act_name_tv_sub_title" />
 
+        <ImageView
+            android:id="@+id/act_name_btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="22dp"
+            android:clickable="false"
+            android:src="@drawable/btn_name_none"
+            android:stateListAnimator="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
