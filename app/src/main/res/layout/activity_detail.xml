@@ -141,9 +141,17 @@
             android:textColor="#ffffff"
             android:lineSpacingExtra="11.3sp"
             android:gravity="center_horizontal"
-            tools:text="부모님과 함께 분리수거 하기"
-            />
+            android:text="부모님과 함께 분리수거 하기" />
 
+        <ImageView
+            android:id="@+id/act_detail_iv_mission_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/img_card_trash"/>
         <TextView
             android:id="@+id/act_detail_tv_mission"
             android:layout_width="wrap_content"
