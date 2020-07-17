@@ -15,7 +15,7 @@
             android:screenOrientation="userLandscape"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.detail.DetailActivity"
+            android:name=".ui.detail.main.DetailActivity"
             android:screenOrientation="userLandscape"
             tools:ignore="LockedOrientationActivity" />
         <activity
