@@ -1,24 +1,28 @@
-package com.bibim.purpur.ui.detail
+package com.bibim.purpur.ui.detail.main
 
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bibim.purpur.PURPUR
 import com.bibim.purpur.R
+import com.bibim.purpur.`object`.PURPUR
+import com.bibim.purpur.adapter.CardAdapter
+import com.bibim.purpur.adapter.CardViewHolder
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityDetailBinding
 import com.bibim.purpur.onlyOneClickListener
-import com.bibim.purpur.ui.detail.detail.DetailViewModel
-import kotlinx.android.synthetic.main.activity_detail.*
+import com.bibim.purpur.ui.detail.dialog.question.QuestionDialogFragment
+import com.bibim.purpur.ui.detail.dialog.quiz.QuizDialogFragment
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     override val layoutResID: Int = R.layout.activity_detail
 
     private lateinit var vm: DetailViewModel
     lateinit var adapter: CardAdapter
-    val quizDialogFragment = QuizDialogFragment().getInstance()
-
+    private val quizDialogFragment = QuizDialogFragment()
+        .getInstance()
+    private val questionDialogFragment = QuestionDialogFragment()
+        .getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +37,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
 
         setMissionRecyclerViewAdapter()
 
-        act_detail_iv_mission_btn.onlyOneClickListener {
+        viewDataBinding.actDetailIvMissionBtn.onlyOneClickListener {
             quizDialogFragment.isCancelable = false
             quizDialogFragment.show(supportFragmentManager, "QUIZ")
+        }
+
+        viewDataBinding.actDetailIvQuestion.onlyOneClickListener {
+            questionDialogFragment.show(supportFragmentManager, "QUESTION")
         }
 
     }
@@ -44,18 +52,20 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
         adapter = CardAdapter(object :
             CardViewHolder.MissionItemClickListener {
             override fun missionItemClick(position: Int) {
-                act_detail_iv_mission_btn.visibility = View.VISIBLE
-                act_detail_iv_mission_img.visibility = View.VISIBLE
-                act_detail_tv_mission_text.visibility = View.VISIBLE
-                act_detail_tv_mission.visibility = View.GONE
-                act_detail_iv_mission_img.setImageResource(PURPUR.MISSION_SELECT_LIST[position].image)
-                act_detail_tv_mission_text.text = PURPUR.MISSION_SELECT_LIST[position].text
-                act_detail_iv_mission_back.setBackgroundResource(PURPUR.MISSION_SELECT_LIST[position].backGround)
+                viewDataBinding.actDetailIvMissionBtn.visibility = View.VISIBLE
+                viewDataBinding.actDetailIvMissionImg.visibility = View.VISIBLE
+                viewDataBinding.actDetailTvMissionText.visibility = View.VISIBLE
+                viewDataBinding.actDetailTvMission.visibility = View.GONE
+                viewDataBinding.actDetailIvMissionImg.setImageResource(PURPUR.MISSION_SELECT_LIST[position].image)
+                viewDataBinding.actDetailTvMissionText.text =
+                    PURPUR.MISSION_SELECT_LIST[position].text
+                viewDataBinding.actDetailIvMissionBack.setBackgroundResource(PURPUR.MISSION_SELECT_LIST[position].backGround)
             }
         })
         adapter.setCardItemList(PURPUR.MISSION_IMAGE_LIST)
-        rv.adapter = adapter
-        rv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        viewDataBinding.rv.adapter = adapter
+        viewDataBinding.rv.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
     }
 }

@@ -1,4 +1,4 @@
-package com.bibim.purpur.ui.detail.detail
+package com.bibim.purpur.ui.detail.main
 
 import androidx.lifecycle.ViewModel
 

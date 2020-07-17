@@ -1,11 +1,11 @@
-package com.bibim.purpur.ui.detail.dialog
+package com.bibim.purpur.ui.detail.dialog.quiz
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.util.*
 
-class DialogViewModel : ViewModel() {
+class QuizDialogViewModel : ViewModel() {
     private val _randomNumList = MutableLiveData<Array<Int>>()
     val randomNumList: LiveData<Array<Int>> get() = _randomNumList
 

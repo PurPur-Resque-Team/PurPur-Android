@@ -1,4 +1,4 @@
-package com.bibim.purpur.ui.detail.dialog
+package com.bibim.purpur.ui.detail.dialog.quiz
 
 import android.app.Dialog
 import android.graphics.Color
@@ -24,7 +24,7 @@ class QuizDialogFragment : DialogFragment() {
         val QUIZ_TRY = ArrayList<Int>()
     }
 
-    private lateinit var dialogViewModel: DialogViewModel
+    private lateinit var quizDialogViewModel: QuizDialogViewModel
     private lateinit var binding: DialogQuizBinding
     lateinit var btnArray: MutableList<QuizAnswer>
 
@@ -40,18 +40,13 @@ class QuizDialogFragment : DialogFragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("des", "dsds")
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DialogQuizBinding.inflate(LayoutInflater.from(this.context), container, false)
-        dialogViewModel = ViewModelProvider(this).get(DialogViewModel::class.java)
+        quizDialogViewModel = ViewModelProvider(this).get(QuizDialogViewModel::class.java)
 
 
         btnArray = mutableListOf(
@@ -71,7 +66,7 @@ class QuizDialogFragment : DialogFragment() {
             quitDialog()
         }
 
-        dialogViewModel.getRandomNumbers()
+        quizDialogViewModel.getRandomNumbers()
 
         observeData()
         setBackground()
@@ -109,7 +104,7 @@ class QuizDialogFragment : DialogFragment() {
     }
 
     private fun observeData() {
-        dialogViewModel.randomNumList.observe(this, androidx.lifecycle.Observer {
+        quizDialogViewModel.randomNumList.observe(this, androidx.lifecycle.Observer {
             binding.dialogQuizTvFirst.text = PURPUR.MISSION_CLEAR_QUIZ_NUMBER[it[0]]
             binding.dialogQuizTvSecond.text = PURPUR.MISSION_CLEAR_QUIZ_NUMBER[it[1]]
             binding.dialogQuizTvThird.text = PURPUR.MISSION_CLEAR_QUIZ_NUMBER[it[2]]
