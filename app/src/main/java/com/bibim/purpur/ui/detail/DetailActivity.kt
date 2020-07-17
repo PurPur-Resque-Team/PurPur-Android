@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.animation.LinearInterpolator
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bibim.purpur.PURPUR
@@ -42,6 +43,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                 act_detail_iv_mission_img.setImageResource(PURPUR.MISSION_SELECT_LIST[position].image)
                 act_detail_tv_mission_text.text = PURPUR.MISSION_SELECT_LIST[position].text
                 act_detail_iv_mission_back.setBackgroundResource(PURPUR.MISSION_SELECT_LIST[position].backGround)
+
+                val quizDialogFragment = QuizDialogFragment().getInstance()
+                quizDialogFragment.isCancelable = false
+                quizDialogFragment.show(supportFragmentManager,"QUIZ")
             }
         })
         adapter.setCardItemList(PURPUR.MISSION_IMAGE_LIST)
