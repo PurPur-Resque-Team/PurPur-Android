@@ -8,10 +8,13 @@ import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityNameBinding
 import com.bibim.purpur.onlyOneClickListener
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class NameActivity : BaseActivity<ActivityNameBinding>() {
     override val layoutResID: Int
         get() = R.layout.activity_name
+
+    private val nameViewModel: NameViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

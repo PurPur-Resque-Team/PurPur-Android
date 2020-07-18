@@ -1,4 +1,6 @@
-package com.bibim.purpur
+package com.bibim.purpur.`object`
+
+import com.bibim.purpur.R
 
 object PURPUR {
 
@@ -8,6 +10,10 @@ object PURPUR {
         R.drawable.img_card_water,
         R.drawable.img_card_food,
         R.drawable.img_card_trash
+    )
+
+    val MISSION_CLEAR_QUIZ_NUMBER = listOf<String>(
+        "영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"
     )
 
     val MISSION_SELECT_LIST = listOf<Mission>(
@@ -39,4 +45,3 @@ object PURPUR {
     )
 }
 
-class Mission(val text: String, val image: Int, val backGround: Int)

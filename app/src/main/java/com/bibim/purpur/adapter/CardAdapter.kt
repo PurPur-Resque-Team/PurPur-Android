@@ -1,4 +1,4 @@
-package com.bibim.purpur.ui.detail
+package com.bibim.purpur.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

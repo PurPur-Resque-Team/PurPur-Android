@@ -6,7 +6,7 @@ import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityButtonBinding
 import com.bibim.purpur.onlyOneClickListener
-import com.bibim.purpur.ui.detail.DetailActivity
+import com.bibim.purpur.ui.detail.main.DetailActivity
 import com.bibim.purpur.ui.main.MainActivity
 import com.bibim.purpur.ui.name.NameActivity
 import kotlinx.android.synthetic.main.activity_button.*
