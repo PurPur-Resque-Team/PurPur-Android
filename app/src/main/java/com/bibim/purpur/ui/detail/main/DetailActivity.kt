@@ -2,7 +2,6 @@ package com.bibim.purpur.ui.detail.main
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bibim.purpur.R
 import com.bibim.purpur.`object`.PURPUR
@@ -13,11 +12,13 @@ import com.bibim.purpur.databinding.ActivityDetailBinding
 import com.bibim.purpur.onlyOneClickListener
 import com.bibim.purpur.ui.detail.dialog.question.QuestionDialogFragment
 import com.bibim.purpur.ui.detail.dialog.quiz.QuizDialogFragment
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     override val layoutResID: Int = R.layout.activity_detail
 
-    private lateinit var vm: DetailViewModel
+    private val detailViewModel: DetailViewModel by viewModel()
+
     lateinit var adapter: CardAdapter
     private val quizDialogFragment = QuizDialogFragment()
         .getInstance()
@@ -27,7 +28,6 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        vm = ViewModelProvider(this).get(DetailViewModel::class.java)
 
 //        val progressAnimator = ObjectAnimator.ofInt(progressbar, "progress", 0, 100)
 //        progressAnimator.duration = 3000
