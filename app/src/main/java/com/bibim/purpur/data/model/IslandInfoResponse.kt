@@ -18,7 +18,6 @@ data class IslandInfo(
 data class AnimalInfo(
     val animalIdx: Int,
     val animalName: String,
-    val animalVerify:Int,
     val animalMissionCount: Int,
     val lastMissionClear: String,
     val animalStatus: Int,
