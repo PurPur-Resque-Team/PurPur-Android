@@ -23,6 +23,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
         sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE)
 
+//        sharedPreferences.edit().remove("TOKEN").commit()
+
         PURPUR.USER_TOKEN = sharedPreferences.getString("TOKEN", "").toString()
         Log.e("사용자 토큰", sharedPreferences.getString("TOKEN", "없음"))
 
