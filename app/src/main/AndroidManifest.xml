@@ -45,6 +45,10 @@
         <activity
             android:name=".ui.ButtonActivity"
             android:screenOrientation="userLandscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:screenOrientation="userLandscape"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

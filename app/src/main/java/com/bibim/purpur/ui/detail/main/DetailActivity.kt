@@ -47,7 +47,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
         super.onCreate(savedInstanceState)
 
 
-        animalIdx = intent.getIntExtra("animalIdx", -1)
+        animalIdx = intent.getIntExtra("animalIdx", 111)
 
         Loading.goLoading(this)
         detailViewModel.getMissionsAndAnimalInformation(animalIdx)
@@ -68,6 +68,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
 
         viewDataBinding.actDetailIvQuestion.onlyOneClickListener {
             questionDialogFragment.show(supportFragmentManager, "QUESTION")
+        }
+
+        viewDataBinding.actDetailIvBack.onlyOneClickListener {
+            this.finish()
         }
     }
 
