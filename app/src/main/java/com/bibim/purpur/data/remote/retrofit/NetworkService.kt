@@ -1,15 +1,16 @@
 package com.bibim.purpur.data.remote.retrofit
 
 import com.bibim.purpur.data.model.SignUpResponse
+import com.google.gson.JsonObject
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 
 interface NetworkService {
 
-    @GET("/users/signup")
+    @POST("/users/signup")
     fun signUp(
-        @Path("userName") userName: String
+        @Body userName: JsonObject
     ): Call<SignUpResponse>
 }
