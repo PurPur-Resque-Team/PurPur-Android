@@ -10,24 +10,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.bibim.purpur.R
 import com.bibim.purpur.onlyOneClickListener
+import com.bibim.purpur.ui.name.NameViewModel
 import kotlinx.android.synthetic.main.dialog_name_edit.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class NameEditDialogFragment : DialogFragment(){
 
-    lateinit var listener : OnDialogDismissedListener
+//    lateinit var listener : OnDialogDismissedListener
+    val viewModel : NameViewModel by viewModel()
 
-    fun setOnDialogDismissedListener(listener: OnDialogDismissedListener) {
-        this.listener = listener
-    }
-
-    interface OnDialogDismissedListener {
-        fun onDialogDismissed()
-    }
-
-    override fun dismiss() {
-        listener.onDialogDismissed()
-        super.dismiss()
-    }
+//    fun setOnDialogDismissedListener(listener: OnDialogDismissedListener) {
+//        this.listener = listener
+//    }
+//
+//    interface OnDialogDismissedListener {
+//        fun onDialogDismissed()
+//    }
+//
+//    override fun dismiss() {
+//        listener.onDialogDismissed()
+//        super.dismiss()
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,9 +49,10 @@ class NameEditDialogFragment : DialogFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dialog_name_edit_iv_enter.onlyOneClickListener {
-            dismiss()
-        }
+//        dialog_name_edit_iv_enter.onlyOneClickListener {
+//            viewModel.putUserName(dial_name_edit_et_name.text.toString())
+////            dismiss()
+//        }
     }
 
 }
