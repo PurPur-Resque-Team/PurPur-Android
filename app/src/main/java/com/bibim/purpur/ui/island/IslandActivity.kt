@@ -41,8 +41,8 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
             viewDataBinding.actIslandIvBear,
             viewDataBinding.actIslandIvFox,
             viewDataBinding.actIslandIvMole,
-            viewDataBinding.actIslandIvPlant,
-            viewDataBinding.actIslandIvDuck
+            viewDataBinding.actIslandIvDuck,
+            viewDataBinding.actIslandIvPlant
         )
 
         setClickListener()
@@ -84,6 +84,7 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
         for (animalIndex in animalImageList.indices) {
             animalImageList[animalIndex].setOnClickListener {
                 val goMission = Intent(this, DetailActivity::class.java)
+                Log.e("animalNum",viewModel.animalList.value?.get(animalIndex)!!.animalIdx.toString())
                 goMission.putExtra(
                     "animalIdx",
                     viewModel.animalList.value?.get(animalIndex)!!.animalIdx

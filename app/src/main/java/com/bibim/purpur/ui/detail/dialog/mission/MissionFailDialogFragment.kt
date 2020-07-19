@@ -1,21 +1,21 @@
-package com.bibim.purpur.ui.detail.dialog.question
+package com.bibim.purpur.ui.detail.dialog.mission
 
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.bibim.purpur.databinding.DialogQuestionBinding
-import com.bibim.purpur.onlyOneClickListener
+import com.bibim.purpur.databinding.DialogMissionFailBinding
 
-class QuestionDialogFragment : DialogFragment() {
-    private lateinit var binding: DialogQuestionBinding
+class MissionFailDialogFragment : DialogFragment() {
+    private lateinit var binding: DialogMissionFailBinding
 
-    fun getInstance(): QuestionDialogFragment {
-        return QuestionDialogFragment()
+    fun getInstance(): MissionFailDialogFragment {
+        return MissionFailDialogFragment()
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -38,13 +38,12 @@ class QuestionDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogQuestionBinding.inflate(LayoutInflater.from(this.context), container, false)
+        binding =
+            DialogMissionFailBinding.inflate(LayoutInflater.from(this.context), container, false)
 
+        val handler = Handler()
+        handler.postDelayed({ dismiss() }, 1000)
         setBackground()
-
-        binding.dialogQuestionIvEnter.onlyOneClickListener {
-            dismiss()
-        }
 
         return binding.root
     }

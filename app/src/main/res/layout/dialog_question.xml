@@ -39,8 +39,8 @@
                 android:id="@+id/dialog_question_iv_enter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_btn_detail_question"
                 android:layout_marginBottom="22dp"
-                android:src="@drawable/btn_info_confirm_act"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
