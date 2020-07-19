@@ -3,7 +3,6 @@ package com.bibim.purpur.`object`
 import com.bibim.purpur.R
 
 object PURPUR {
-
     var USER_TOKEN = ""
 
     val ANIMAL_SMALL_HEAD = listOf(
