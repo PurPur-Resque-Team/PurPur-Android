@@ -43,4 +43,8 @@ class LoadingActivity : BaseActivity<ActivityLoadingBinding>() {
         overridePendingTransition(0, 0)
     }
 
+    override fun onBackPressed() {
+
+    }
+
 }
