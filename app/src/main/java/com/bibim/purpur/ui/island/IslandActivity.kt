@@ -2,13 +2,16 @@ package com.bibim.purpur.ui.island
 
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.animation.LinearInterpolator
+import android.widget.ImageView
 import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityIslandBinding
+import com.bibim.purpur.ui.detail.main.DetailActivity
 import kotlinx.android.synthetic.main.activity_island.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -17,6 +20,7 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
 
     override val layoutResID: Int = R.layout.activity_island
     private val viewModel: IslandViewModel by viewModel()
+    lateinit var animalImageList: List<ImageView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +29,17 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
 
         viewModel.getIslandInfo(65)
 
+        animalImageList = listOf(
+            viewDataBinding.actIslandIvRabbit,
+            viewDataBinding.actIslandIvBear,
+            viewDataBinding.actIslandIvFox,
+            viewDataBinding.actIslandIvMole,
+            viewDataBinding.actIslandIvPlant,
+            viewDataBinding.actIslandIvDuck
+        )
+
+        setClickListener()
+
         val mediaPlayer = MediaPlayer.create(this, R.raw.purpur_bgm)
         mediaPlayer.isLooping = true
         val manager = this.getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -32,11 +47,24 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
             mediaPlayer.start()
         }
 
-        val progressAnimator = ObjectAnimator.ofInt(act_main_pb,"progress",0,100)
+        val progressAnimator = ObjectAnimator.ofInt(act_main_pb, "progress", 0, 100)
         progressAnimator.duration = 3000
         val ll = LinearInterpolator()
         progressAnimator.interpolator = ll
         progressAnimator.start()
+    }
+
+    private fun setClickListener() {
+        for (animalIndex in animalImageList.indices) {
+            animalImageList[animalIndex].setOnClickListener {
+                val goMission = Intent(this, DetailActivity::class.java)
+                goMission.putExtra(
+                    "animalIdx",
+                    viewModel.animalList.value?.get(animalIndex)!!.animalIdx
+                )
+                startActivity(goMission)
+            }
+        }
     }
 
 }
