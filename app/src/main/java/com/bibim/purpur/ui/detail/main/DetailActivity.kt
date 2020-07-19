@@ -46,11 +46,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        animalIdx = intent.getIntExtra("animalIdx", -1)
+
         Loading.goLoading(this)
         detailViewModel.getMissionsAndAnimalInformation(animalIdx)
         viewDataBinding.vm = detailViewModel
-
-
 
         setMissionRecyclerViewAdapter()
 
@@ -86,7 +87,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
                 2 -> {
                     gauge = 65
                 }
-                3 -> {
+                else -> {
                     gauge = 100
                 }
             }

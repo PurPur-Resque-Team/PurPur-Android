@@ -69,6 +69,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/act_island_iv_mole"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="126dp"
@@ -80,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="@id/act_main_iv_island" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/act_island_iv_fox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="218dp"
@@ -92,6 +93,7 @@
             app:layout_constraintEnd_toEndOf="@id/act_main_iv_island" />
 
         <ImageView
+            android:id="@+id/act_island_iv_duck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="98dp"
@@ -103,6 +105,7 @@
             app:layout_constraintTop_toTopOf="@id/act_main_iv_island" />
 
         <ImageView
+            android:id="@+id/act_island_iv_rabbit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="77dp"
@@ -114,6 +117,7 @@
             app:layout_constraintTop_toTopOf="@+id/act_main_iv_island" />
 
         <ImageView
+            android:id="@+id/act_island_iv_bear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="114dp"
@@ -125,6 +129,7 @@
             app:layout_constraintStart_toStartOf="@id/act_main_iv_island" />
 
         <ImageView
+            android:id="@+id/act_island_iv_plant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="186dp"
