@@ -15,9 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.islandSelect.IslandSelectActivity"
+        <service android:name=".BGMService" >
+            <intent-filter>
+                <action android:name="com.bibim.purpur" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".ui.islandSelect.IslandSelectActivity"
             android:screenOrientation="userLandscape"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.LoadingActivity"
             android:screenOrientation="userLandscape"

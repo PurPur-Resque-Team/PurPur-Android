@@ -11,6 +11,7 @@ data class IslandInfo(
     val islandName: String,
     val islandProgress: Int,
     val isOpened: Int,
+    val islandStatus: Int,
     val animals: ArrayList<AnimalInfo>
 )
 
@@ -22,5 +23,6 @@ data class AnimalInfo(
     val animalStatus: Int,
     val animalProgress: Int,
     val createdAt: String,
-    val updatedAt: String
+    val updatedAt: String,
+    val animalVerify: Int
 )
