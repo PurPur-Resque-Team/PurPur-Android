@@ -3,10 +3,7 @@ package com.bibim.purpur.data.remote.retrofit
 import com.bibim.purpur.data.model.*
 import com.google.gson.JsonObject
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 
 interface NetworkService {
@@ -34,4 +31,7 @@ interface NetworkService {
 
     @GET("/islands")
     fun getIslandList(): Call<IslandListResponse>
+
+    @PUT("/users/setUserName")
+    fun putUserName(): Call<NameResponse>
 }

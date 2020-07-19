@@ -3,6 +3,8 @@ package com.bibim.purpur.ui.islandSelect
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import com.bibim.purpur.R
@@ -21,6 +23,7 @@ class IslandSelectActivity : BaseActivity<ActivityIslandSelectBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewDataBinding.activity = this
         viewModel.getIslandList()
         getIslandList()
         setClick()
@@ -38,7 +41,8 @@ class IslandSelectActivity : BaseActivity<ActivityIslandSelectBinding>() {
     }
 
     fun onClick(){
-        val nameEditDialogFragment = NameEditDialogFragment()
-        nameEditDialogFragment.show(supportFragmentManager,"schedule_dialog_fragment")
+        Log.e("온클릭", " 실행")
+        val islandSelectNoneDialogFragment = IslandSelectNoneDialogFragment()
+        islandSelectNoneDialogFragment.show(supportFragmentManager,"schedule_dialog_fragment")
     }
 }
