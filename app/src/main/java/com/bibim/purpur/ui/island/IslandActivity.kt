@@ -27,6 +27,7 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
     override val layoutResID: Int = R.layout.activity_island
     private val viewModel: IslandViewModel by viewModel()
     lateinit var animalImageList: List<ImageView>
+    var idx = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,7 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
         Loading.goLoading(this)
         viewDataBinding.vm = viewModel
 
-        val idx = intent.getIntExtra("islandIdx", -1)
+        idx = intent.getIntExtra("islandIdx", -1)
         viewModel.getIslandInfo(idx)
 
         animalImageList = listOf(
@@ -53,7 +54,7 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getIslandInfo(65)
+        viewModel.getIslandInfo(idx)
     }
 
     private fun setMusic(){

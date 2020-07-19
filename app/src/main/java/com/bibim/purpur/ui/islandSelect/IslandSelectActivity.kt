@@ -34,6 +34,7 @@ companion object {
         viewDataBinding.activity = this
         getIslandList()
         setClick()
+        observeData()
     }
 
     fun getIslandList(){
@@ -48,7 +49,7 @@ companion object {
 
         viewDataBinding.actIslandIvFirst.onlyOneClickListener {
             val intent = Intent(this, IslandActivity::class.java)
-            intent.putExtra("islandIdx", nickname)
+            intent.putExtra("islandIdx", islandIdx)
             startActivity(intent)
         }
     }
