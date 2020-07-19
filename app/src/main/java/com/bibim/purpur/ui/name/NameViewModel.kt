@@ -22,7 +22,7 @@ class NameViewModel(private val nameRepository: NameRepository) : ViewModel() {
 
     }
 
-    fun putUserName(userName: String){
+    fun putUserName(userName: JsonObject){
         nameRepository.putUserName(userName, success = {
             Log.e("통신성공", it.toString())
             userNameStatus.postValue(it.status)

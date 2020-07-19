@@ -10,6 +10,6 @@ class NameRepository(private val remoteDataSource: RemoteDataSource) {
     fun signUp(userName: JsonObject, success: (SignUpResponse) -> Unit, fail: (Throwable) -> Unit) =
         remoteDataSource.signUp(userName, success, fail)
 
-    fun putUserName(userIdx: String, success: (NameResponse) -> Unit, fail: (Throwable) -> Unit) =
+    fun putUserName(userIdx: JsonObject, success: (NameResponse) -> Unit, fail: (Throwable) -> Unit) =
         remoteDataSource.putUserName(userIdx, success, fail)
 }

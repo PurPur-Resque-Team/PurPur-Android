@@ -37,7 +37,7 @@ interface RemoteDataSource {
     )
 
     fun putUserName(
-        userName: String,
+        userName: JsonObject,
         success: (NameResponse) -> Unit,
         fail: (Throwable) -> Unit
     )
