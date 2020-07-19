@@ -7,14 +7,17 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import androidx.lifecycle.Observer
 import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityIslandBinding
+import com.bibim.purpur.onlyOneClickListener
 import com.bibim.purpur.ui.Loading
 import com.bibim.purpur.ui.detail.main.DetailActivity
+import com.bibim.purpur.ui.islandSelect.IslandSelectActivity
 import kotlinx.android.synthetic.main.activity_island.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -44,7 +47,12 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
 
         setClickListener()
         setMusic()
-        obseve()
+        observe()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getIslandInfo(65)
     }
 
     private fun setMusic(){
@@ -56,11 +64,12 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
         }
     }
 
-    private fun obseve() {
+    private fun observe() {
         viewModel.islandInfo.observe(this, Observer {
+            Log.e("it -> ", it.islandProgress.toString())
             val progressAnimator =
                 ObjectAnimator.ofInt(act_main_pb, "progress", 0, it.islandProgress)
-            progressAnimator.duration = 5000
+            progressAnimator.duration = 1000
             val ll = LinearInterpolator()
             progressAnimator.interpolator = ll
             progressAnimator.start()
@@ -81,6 +90,11 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
                 )
                 startActivity(goMission)
             }
+        }
+
+        viewDataBinding.actMainIvSetting.onlyOneClickListener {
+            val intent = Intent(this, IslandSelectActivity::class.java)
+            startActivity(intent)
         }
     }
 

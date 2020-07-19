@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="activity"
+            type="com.bibim.purpur.ui.islandSelect.IslandSelectActivity" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +25,7 @@
             android:layout_marginTop="16dp"
             android:src="@drawable/btn_setting"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/act_island_select_tv_title"
@@ -88,6 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
                     android:clickable="true"
+                    android:onClick="@{() -> activity.onClick()}"
                     android:background="@drawable/selector_btn_island_select_none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
                     android:clickable="true"
+                    android:onClick="@{() -> activity.onClick()}"
                     android:background="@drawable/selector_btn_island_select_none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -136,6 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
                     android:clickable="true"
+                    android:onClick="@{() -> activity.onClick()}"
                     android:background="@drawable/selector_btn_island_select_none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

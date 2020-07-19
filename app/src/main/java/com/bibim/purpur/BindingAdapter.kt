@@ -2,6 +2,7 @@ package com.bibim.purpur
 
 import android.util.Log
 import android.view.View
+import android.view.View.VISIBLE
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bibim.purpur.`object`.PURPUR.ANIMAL_STATE_LIST
@@ -22,8 +23,6 @@ fun ImageView.setIsland(status : Int) {
 
 @BindingAdapter("idx", "status")
 fun ImageView.setAnimal(idx: Int, status : Int) {
-    Log.e("idx", idx.toString())
-    Log.e("status", status.toString())
-
+    visibility = VISIBLE
     setImageResource(ANIMAL_STATE_LIST[idx][status])
 }
