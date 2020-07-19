@@ -34,7 +34,8 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
         Loading.goLoading(this)
         viewDataBinding.vm = viewModel
 
-        viewModel.getIslandInfo(65)
+        val idx = intent.getIntExtra("islandIdx", -1)
+        viewModel.getIslandInfo(idx)
 
         animalImageList = listOf(
             viewDataBinding.actIslandIvRabbit,
