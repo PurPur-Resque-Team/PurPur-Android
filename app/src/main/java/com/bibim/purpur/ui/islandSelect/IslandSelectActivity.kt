@@ -3,6 +3,7 @@ package com.bibim.purpur.ui.islandSelect
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.Observer
 import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityIslandSelectBinding
@@ -13,6 +14,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class IslandSelectActivity : BaseActivity<ActivityIslandSelectBinding>() {
 companion object {
     var nickname = ""
+    var islandIdx = -1
 }
     override val layoutResID: Int = R.layout.activity_island_select
     val viewModel : IslandSelectViewModel by viewModel()
@@ -46,8 +48,15 @@ companion object {
 
         viewDataBinding.actIslandIvFirst.onlyOneClickListener {
             val intent = Intent(this, IslandActivity::class.java)
+            intent.putExtra("islandIdx", nickname)
             startActivity(intent)
         }
+    }
+
+    fun observeData(){
+        viewModel.islandList.observe(this, Observer {
+            islandIdx = it[0].islandIdx
+        })
     }
 
     fun onClick(){

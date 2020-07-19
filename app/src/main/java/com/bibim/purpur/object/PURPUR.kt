@@ -48,7 +48,7 @@ object PURPUR {
         ),
         listOf(
             R.drawable.img_plant_one,
-            R.drawable.btn_plant_two,
+            R.drawable.img_plant_two,
             R.drawable.img_plant_three,
             R.drawable.img_plant_clear
         )
