@@ -93,5 +93,56 @@ object PURPUR {
             R.drawable.bg_mission_background_selected_trash
         )
     )
+
+    val ANIMAL_STATE_LIST = listOf(
+        listOf(
+            R.drawable.btn_rabbit_one,
+            R.drawable.btn_rabbit_two,
+            R.drawable.btn_rabbit_three,
+            R.drawable.btn_rabbit
+        ),
+        listOf(
+            R.drawable.btn_bear_one,
+            R.drawable.btn_bear_two,
+            R.drawable.btn_bear_three,
+            R.drawable.btn_bear
+        ),
+        listOf(
+            R.drawable.btn_fox_one,
+            R.drawable.btn_fox_two,
+            R.drawable.btn_fox_three,
+            R.drawable.btn_fox
+        ),
+        listOf(
+            R.drawable.btn_mole_one,
+            R.drawable.btn_mole_two,
+            R.drawable.btn_mole_three,
+            R.drawable.btn_mole
+        ),
+        listOf(
+            R.drawable.btn_duck_one,
+            R.drawable.btn_duck_two,
+            R.drawable.btn_duck_three,
+            R.drawable.btn_duck
+        ),
+        listOf(
+            R.drawable.btn_plant_one,
+            R.drawable.btn_plant_two,
+            R.drawable.btn_plant_three,
+            R.drawable.btn_plant
+        )
+    )
+
+    val Island_STATE_LIST = listOf(
+        R.drawable.img_bg_island_one,
+        R.drawable.img_bg_island_two,
+        R.drawable.img_bg_island
+    )
+
+    val IslandBg_STATE_LIST = listOf(
+        R.drawable.img_bg_one,
+        R.drawable.img_bg_two,
+        R.drawable.img_bg
+    )
 }
 
