@@ -4,6 +4,8 @@ import com.bibim.purpur.R
 
 object PURPUR {
 
+    var USER_TOKEN = ""
+
     val MISSION_IMAGE_LIST = listOf<Int>(
         R.drawable.img_card_recycle,
         R.drawable.img_card_electric,
