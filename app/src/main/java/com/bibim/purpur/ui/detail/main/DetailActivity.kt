@@ -1,9 +1,12 @@
 package com.bibim.purpur.ui.detail.main
 
+import android.animation.ObjectAnimator
 import android.content.DialogInterface
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
+import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,23 +21,23 @@ import com.bibim.purpur.onlyOneClickListener
 import com.bibim.purpur.ui.Loading
 import com.bibim.purpur.ui.detail.dialog.question.QuestionDialogFragment
 import com.bibim.purpur.ui.detail.dialog.quiz.QuizDialogFragment
-import com.google.gson.JsonObject
-import com.google.gson.JsonParser
-import org.json.JSONObject
+import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.OnDismissListener {
     companion object {
         var selectedCardIdx: Int = -1
+        var animalIdx = 111
+        var wrongAnswer = -1
     }
 
+    private var beforeGauge = 0
     override val layoutResID: Int = R.layout.activity_detail
 
      val detailViewModel: DetailViewModel by viewModel()
 
-    private val animalIdx = 4
 
-    lateinit var adapter: CardAdapter
+    private lateinit var adapter: CardAdapter
     private val quizDialogFragment = QuizDialogFragment()
         .getInstance()
     private val questionDialogFragment = QuestionDialogFragment()
@@ -43,16 +46,11 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         Loading.goLoading(this)
         detailViewModel.getMissionsAndAnimalInformation(animalIdx)
         viewDataBinding.vm = detailViewModel
 
-//        val progressAnimator = ObjectAnimator.ofInt(progressbar, "progress", 0, 100)
-//        progressAnimator.duration = 3000
-//        val ll = LinearInterpolator()
-//        progressAnimator.interpolator = ll
-//        progressAnimator.start()
+
 
         setMissionRecyclerViewAdapter()
 
@@ -75,26 +73,70 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
     private fun observeData() {
         detailViewModel.missionAndAnimalStatus.observe(this, Observer {
             adapter.setIsClearedList(it.data.missions)
+            viewDataBinding.actDetailIvAnimalImg.setImageResource(PURPUR.ANIMAL_DESC[it.data.animalInfo.animalVerify][it.data.animalInfo.animalStatus])
+            viewDataBinding.actDetailIvAnimalHead.setImageResource(PURPUR.ANIMAL_SMALL_HEAD[it.data.animalInfo.animalVerify])
+            var gauge = 0
+            when (it.data.animalInfo.animalStatus) {
+                0 -> {
+                    gauge = 0
+                }
+                1 -> {
+                    gauge = 31
+                }
+                2 -> {
+                    gauge = 65
+                }
+                3 -> {
+                    gauge = 100
+                }
+            }
+            val progressAnimator = ObjectAnimator.ofInt(progressbar, "progress", beforeGauge, gauge)
+            beforeGauge = gauge
+
+            val handler = Handler()
+            handler.postDelayed({ Loading.exitLoading() }, 1000)
+            Loading.exitLoading()
+
+            // 1단계 : 31 2단계 : 65 3단계 : 100
+            progressAnimator.duration = 1000
+            val ll = LinearInterpolator()
+            progressAnimator.interpolator = ll
+            progressAnimator.start()
         })
         detailViewModel.missionAndAnimalError.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            Loading.exitLoading()
         })
 
         detailViewModel.missionClearResponse.observe(this, Observer {
             if (it.status == 200) {
                 Toast.makeText(this, "미션 클리어!", Toast.LENGTH_LONG).show()
-                viewDataBinding.actDetailIvMissionBtn.setImageResource(R.drawable.btn_done_act)
+//                viewDataBinding.actDetailIvMissionBtn.setImageResource(R.drawable.btn_done_act)
+                getBackMissionBg()
+
                 detailViewModel.getMissionsAndAnimalInformation(animalIdx)
 
 
             } else {
                 Toast.makeText(this, "잘못된 접근입니다!", Toast.LENGTH_LONG).show()
             }
+            Loading.exitLoading()
+
         })
 
         detailViewModel.missionClearResponseError.observe(this, Observer {
             Toast.makeText(this, "잘못된 접근입니다!", Toast.LENGTH_LONG).show()
+            Loading.exitLoading()
+
         })
+    }
+
+    private fun getBackMissionBg() {
+        viewDataBinding.actDetailIvMissionBtn.visibility = View.GONE
+        viewDataBinding.actDetailIvMissionImg.visibility = View.GONE
+        viewDataBinding.actDetailTvMissionText.visibility = View.GONE
+        viewDataBinding.actDetailTvMission.visibility = View.VISIBLE
+        viewDataBinding.actDetailIvMissionBack.setBackgroundResource(R.drawable.bg_mission_background)
     }
 
     private fun setMissionRecyclerViewAdapter() {
@@ -135,7 +177,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
 //        val body =
 //            JsonParser.parseString(clearMissionIdx.toString()) as JsonObject
 //        detailViewModel.clearMission(animalIdx, body)
-
+        if (wrongAnswer == 1) {
+            getBackMissionBg()
+        }
+        wrongAnswer = -1
     }
 
 }
