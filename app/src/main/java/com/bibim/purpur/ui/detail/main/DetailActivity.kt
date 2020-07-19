@@ -19,6 +19,7 @@ import com.bibim.purpur.data.model.Mission
 import com.bibim.purpur.databinding.ActivityDetailBinding
 import com.bibim.purpur.onlyOneClickListener
 import com.bibim.purpur.ui.Loading
+import com.bibim.purpur.ui.detail.dialog.mission.MissionSuccessDialogFragment
 import com.bibim.purpur.ui.detail.dialog.question.QuestionDialogFragment
 import com.bibim.purpur.ui.detail.dialog.quiz.QuizDialogFragment
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -34,13 +35,15 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
     private var beforeGauge = 0
     override val layoutResID: Int = R.layout.activity_detail
 
-     val detailViewModel: DetailViewModel by viewModel()
+    val detailViewModel: DetailViewModel by viewModel()
 
 
     private lateinit var adapter: CardAdapter
     private val quizDialogFragment = QuizDialogFragment()
         .getInstance()
     private val questionDialogFragment = QuestionDialogFragment()
+        .getInstance()
+    private val missionSuccessDialogFragment = MissionSuccessDialogFragment()
         .getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,8 +118,8 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
 
         detailViewModel.missionClearResponse.observe(this, Observer {
             if (it.status == 200) {
-                Toast.makeText(this, "미션 클리어!", Toast.LENGTH_LONG).show()
-//                viewDataBinding.actDetailIvMissionBtn.setImageResource(R.drawable.btn_done_act)
+//                Toast.makeText(this, "미션 클리어!", Toast.LENGTH_LONG).show()
+                missionSuccessDialogFragment.show(supportFragmentManager, "missionClear")
                 getBackMissionBg()
 
                 detailViewModel.getMissionsAndAnimalInformation(animalIdx)
@@ -177,13 +180,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(), DialogInterface.On
     }
 
     override fun onDismiss(dialog: DialogInterface?) {
-//        val clearMissionIdx = JSONObject()
-//        clearMissionIdx.put("missionIdx", selectedCardIdx)
-//        val body =
-//            JsonParser.parseString(clearMissionIdx.toString()) as JsonObject
-//        detailViewModel.clearMission(animalIdx, body)
         if (wrongAnswer == 1) {
-            getBackMissionBg()
+            val handler = Handler()
+            Handler().postDelayed({
+                quizDialogFragment.isCancelable = false
+                quizDialogFragment.show(supportFragmentManager, "QUIZ")
+            }, 100)
         }
         wrongAnswer = -1
     }

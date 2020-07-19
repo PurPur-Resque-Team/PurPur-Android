@@ -1,4 +1,4 @@
-package com.bibim.purpur.ui.detail.dialog.question
+package com.bibim.purpur.ui.islandSelect
 
 import android.app.Dialog
 import android.graphics.Color
@@ -8,14 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.bibim.purpur.databinding.DialogQuestionBinding
+import com.bibim.purpur.databinding.DialogIslandAnounceBinding
 import com.bibim.purpur.onlyOneClickListener
 
-class QuestionDialogFragment : DialogFragment() {
-    private lateinit var binding: DialogQuestionBinding
+class InitialJoinDialogFragment : DialogFragment() {
+    private lateinit var binding: DialogIslandAnounceBinding
 
-    fun getInstance(): QuestionDialogFragment {
-        return QuestionDialogFragment()
+    fun getInstance(): InitialJoinDialogFragment {
+        return InitialJoinDialogFragment()
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -38,11 +38,12 @@ class QuestionDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogQuestionBinding.inflate(LayoutInflater.from(this.context), container, false)
-
+        binding =
+            DialogIslandAnounceBinding.inflate(LayoutInflater.from(this.context), container, false)
+        binding.dialogIslandAnouceTvTitle.text = IslandSelectActivity.nickname + "대원, 반가워요."
         setBackground()
 
-        binding.dialogQuestionIvEnter.onlyOneClickListener {
+        binding.dialogIslandAnounceIvEnter.onlyOneClickListener {
             dismiss()
         }
 

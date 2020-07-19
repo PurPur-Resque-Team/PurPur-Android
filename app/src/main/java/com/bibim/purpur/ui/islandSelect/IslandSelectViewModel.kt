@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.bibim.purpur.data.model.IslandList
 import com.bibim.purpur.data.repository.IslandListRepository
 
-class IslandSelectViewModel(val islandListRepository: IslandListRepository) : ViewModel(){
+class IslandSelectViewModel(private val islandListRepository: IslandListRepository) : ViewModel(){
 
     private var _islandList = MutableLiveData<List<IslandList>>()
     val islandList : LiveData<List<IslandList>> get() = _islandList

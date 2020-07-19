@@ -100,7 +100,7 @@ class QuizDialogFragment : DialogFragment() {
                     QUIZ_TRY.add(quizIndex)
                     if (QUIZ_TRY.size == 4) {
                         if (QUIZ_ANSWER == QUIZ_TRY) {
-                            Toast.makeText(requireContext(), "정답입니다!", Toast.LENGTH_LONG).show()
+//                            Toast.makeText(requireContext(), "정답입니다!", Toast.LENGTH_LONG).show()
 
                             val clearMissionIdx = JSONObject()
                             clearMissionIdx.put("missionIdx", DetailActivity.selectedCardIdx)
@@ -114,7 +114,7 @@ class QuizDialogFragment : DialogFragment() {
                                 body
                             )
                         } else {
-                            Toast.makeText(requireContext(), "오답입니다!", Toast.LENGTH_LONG).show()
+//                            Toast.makeText(requireContext(), "오답입니다!", Toast.LENGTH_LONG).show()
                             DetailActivity.wrongAnswer = 1
                         }
                             quitDialog()

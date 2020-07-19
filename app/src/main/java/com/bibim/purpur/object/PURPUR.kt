@@ -11,8 +11,8 @@ object PURPUR {
         R.drawable.img_gauge_bear_head,
         R.drawable.img_gauge_fox_head,
         R.drawable.img_gauge_mole_head,
-        R.drawable.img_gauge_plant_head,
-        R.drawable.img_gauge_duck_head
+        R.drawable.img_gauge_duck_head,
+        R.drawable.img_gauge_plant_head
     )
 
     val ANIMAL_DESC = listOf(
@@ -41,16 +41,16 @@ object PURPUR {
             R.drawable.img_mole_clear
         ),
         listOf(
-            R.drawable.img_plant_one,
-            R.drawable.img_plant_one,
-            R.drawable.img_plant_three,
-            R.drawable.img_plant_clear
-        ),
-        listOf(
             R.drawable.img_duck_one,
             R.drawable.img_duck_two,
             R.drawable.img_duck_three,
             R.drawable.img_duck_clear
+        ),
+        listOf(
+            R.drawable.img_plant_one,
+            R.drawable.btn_plant_two,
+            R.drawable.img_plant_three,
+            R.drawable.img_plant_clear
         )
     )
 
