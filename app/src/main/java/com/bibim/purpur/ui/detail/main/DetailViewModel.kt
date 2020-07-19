@@ -19,10 +19,8 @@ class DetailViewModel(private val detailRepository: DetailRepository) : ViewMode
             animalIdx,
             success = {
                 missionAndAnimalStatus.value = it
-                Loading.exitLoading()
             }, fail = {
                 missionAndAnimalError.value = it.message
-                Loading.exitLoading()
             }
         )
     }
@@ -31,10 +29,8 @@ class DetailViewModel(private val detailRepository: DetailRepository) : ViewMode
         detailRepository.clearMission(animalIdx, missionIdx,
             success = {
                 missionClearResponse.value = it
-                Loading.exitLoading()
             }, fail = {
                 missionClearResponseError.value = it.message
-                Loading.exitLoading()
             })
     }
 

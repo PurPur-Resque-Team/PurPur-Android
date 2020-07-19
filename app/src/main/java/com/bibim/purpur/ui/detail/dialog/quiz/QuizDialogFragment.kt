@@ -1,16 +1,17 @@
 package com.bibim.purpur.ui.detail.dialog.quiz
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
 import com.bibim.purpur.R
 import com.bibim.purpur.`object`.PURPUR
 import com.bibim.purpur.`object`.QuizAnswer
@@ -22,6 +23,7 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import org.koin.android.viewmodel.ext.android.viewModel
+
 
 class QuizDialogFragment : DialogFragment() {
 
@@ -102,15 +104,18 @@ class QuizDialogFragment : DialogFragment() {
 
                             val clearMissionIdx = JSONObject()
                             clearMissionIdx.put("missionIdx", DetailActivity.selectedCardIdx)
+                            Log.e("mission idx",DetailActivity.selectedCardIdx.toString())
                             val body =
                                 JsonParser.parseString(clearMissionIdx.toString()) as JsonObject
+
                             Loading.goLoading(requireActivity())
                             (requireActivity() as DetailActivity).detailViewModel.clearMission(
-                                3,
+                                DetailActivity.animalIdx,
                                 body
                             )
                         } else {
                             Toast.makeText(requireContext(), "오답입니다!", Toast.LENGTH_LONG).show()
+                            DetailActivity.wrongAnswer = 1
                         }
                             quitDialog()
                     }
@@ -139,9 +144,9 @@ class QuizDialogFragment : DialogFragment() {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        val parentFragment: Fragment? = parentFragment
-        if (parentFragment is DialogInterface.OnDismissListener) {
-            (parentFragment as DialogInterface.OnDismissListener?)!!.onDismiss(dialog)
+        val activity: Activity? = activity
+        if (activity is DialogInterface.OnDismissListener) {
+            (activity as DialogInterface.OnDismissListener).onDismiss(dialog)
         }
 
     }

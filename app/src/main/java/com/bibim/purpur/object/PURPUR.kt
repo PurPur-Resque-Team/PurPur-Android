@@ -6,6 +6,54 @@ object PURPUR {
 
     var USER_TOKEN = ""
 
+    val ANIMAL_SMALL_HEAD = listOf(
+        R.drawable.img_gauge_rabbit_head,
+        R.drawable.img_gauge_bear_head,
+        R.drawable.img_gauge_fox_head,
+        R.drawable.img_gauge_mole_head,
+        R.drawable.img_gauge_plant_head,
+        R.drawable.img_gauge_duck_head
+    )
+
+    val ANIMAL_DESC = listOf(
+        listOf(
+            R.drawable.img_rabbit_one,
+            R.drawable.img_rabbit_two,
+            R.drawable.img_rabbit_three,
+            R.drawable.img_rabbit_clear
+        ),
+        listOf(
+            R.drawable.img_bear_one,
+            R.drawable.img_bear_two,
+            R.drawable.img_bear_three,
+            R.drawable.img_bear_clear
+        ),
+        listOf(
+            R.drawable.img_fox_one,
+            R.drawable.img_fox_two,
+            R.drawable.img_fox_three,
+            R.drawable.img_fox_clear
+        ),
+        listOf(
+            R.drawable.img_mole_one,
+            R.drawable.img_mole_two,
+            R.drawable.img_mole_three,
+            R.drawable.img_mole_clear
+        ),
+        listOf(
+            R.drawable.img_plant_one,
+            R.drawable.img_plant_one,
+            R.drawable.img_plant_three,
+            R.drawable.img_plant_clear
+        ),
+        listOf(
+            R.drawable.img_duck_one,
+            R.drawable.img_duck_two,
+            R.drawable.img_duck_three,
+            R.drawable.img_duck_clear
+        )
+    )
+
     val MISSION_IMAGE_LIST = listOf<Int>(
         R.drawable.img_card_recycle,
         R.drawable.img_card_electric,

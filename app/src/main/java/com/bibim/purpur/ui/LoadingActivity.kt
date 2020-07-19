@@ -4,14 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityLoadingBinding
 import kotlinx.android.synthetic.main.activity_loading.*
 
 object Loading {
-    lateinit var activity: Activity
+    var activity: Activity = LoadingActivity()
 
     fun goLoading(nowActivityName: Context) {
         val intent = Intent(nowActivityName, LoadingActivity::class.java)
