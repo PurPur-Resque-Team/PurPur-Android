@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.bibim.purpur.ui.detail.main.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_bg"
+        tools:context=".ui.detail.main.DetailActivity">
+
+        <ImageView
+            android:id="@+id/act_detail_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_name_bg"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintStart_toStartOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintTop_toTopOf="@id/act_detail_tv_animal_name" />
+
+        <TextView
+            android:id="@+id/act_detail_tv_animal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="66dp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/font_bmjua"
+            android:lineSpacingExtra="3sp"
+            android:shadowColor="#4d274a11"
+            android:shadowRadius="3"
+            android:text="@{vm.missionAndAnimalStatus.data.animalInfo.animalName}"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_animal_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_rabbit_clear"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintStart_toStartOf="@id/act_detail_tv_animal_name"
+            app:layout_constraintTop_toBottomOf="@id/act_detail_tv_animal_name" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="19dp"
+            android:src="@drawable/btn_question"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/act_detail_cl_gauge"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="29dp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_back"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintEnd_toStartOf="@id/act_detail_iv_question"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_back">
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:max="100"
+                android:progress="20"
+                android:progressDrawable="@drawable/progress_horizon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/act_detail_iv_animal_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_gauge_rabbit_head"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/act_detail_view_first"
+                android:layout_width="1dp"
+                android:layout_height="11dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/act_detail_view_second"
+                android:layout_width="1dp"
+                android:layout_height="11dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.66"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/act_detail_iv_mission_back"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_mission_background"
+            android:layout_marginLeft="13dp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_animal_img"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_animal_img"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_animal_img" />
+
+        <TextView
+            android:id="@+id/act_detail_tv_mission_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bmjua"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back"
+            android:layout_marginTop="50dp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="11.3sp"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_mission_img"
+            android:gravity="center_horizontal"
+            android:text="부모님과 함께 분리수거 하기" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_mission_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/trash"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_mission_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_mission_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_done"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_mission_img"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_tv_mission_text"
+            app:layout_constraintStart_toStartOf="@id/act_detail_tv_mission_text" />
+
+        <TextView
+            android:id="@+id/act_detail_tv_mission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="7.3sp"
+            android:fontFamily="@font/font_bmjua"
+            android:text="미션카드를 선택해 주세요."
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_mission_back"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_mission_back" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/bg_mission_card_list"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_question"
+            app:layout_constraintStart_toEndOf="@id/act_detail_iv_card_back_second"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/act_detail_iv_card_back_first"
+            android:layout_width="84dp"
+            android:layout_height="77dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/bg_card_background_first"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:elevation="3dp"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_back" />
+
+        <ImageView
+            android:id="@+id/act_detail_iv_card_back_second"
+            android:layout_width="69dp"
+            android:layout_height="64dp"
+            android:elevation="3dp"
+            android:background="@drawable/bg_card_background_second"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first" />
+
+        <TextView
+            android:id="@+id/act_detail_tv_mission_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:fontFamily="@font/font_bmjua"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="3sp"
+            android:text="미션카드"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintEnd_toEndOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintStart_toStartOf="@id/act_detail_iv_card_back_first"
+            app:layout_constraintTop_toTopOf="@id/act_detail_iv_card_back_first" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
