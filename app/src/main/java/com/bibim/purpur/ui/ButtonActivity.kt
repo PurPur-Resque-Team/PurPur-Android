@@ -10,7 +10,8 @@ import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityButtonBinding
 import com.bibim.purpur.onlyOneClickListener
 import com.bibim.purpur.ui.detail.main.DetailActivity
-import com.bibim.purpur.ui.main.MainActivity
+import com.bibim.purpur.ui.island.IslandActivity
+import com.bibim.purpur.ui.islandSelect.IslandSelectActivity
 import com.bibim.purpur.ui.name.NameActivity
 import kotlinx.android.synthetic.main.activity_button.*
 
@@ -28,7 +29,7 @@ class ButtonActivity : BaseActivity<ActivityButtonBinding>() {
         Log.e("사용자 토큰", sharedPreferences.getString("TOKEN", "없음"))
 
         go_main.onlyOneClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, IslandActivity::class.java)
             startActivity(intent)
         }
 
@@ -39,6 +40,11 @@ class ButtonActivity : BaseActivity<ActivityButtonBinding>() {
 
         go_name.onlyOneClickListener {
             val intent = Intent(this, NameActivity::class.java)
+            startActivity(intent)
+        }
+
+        island_select.onlyOneClickListener {
+            val intent = Intent(this, IslandSelectActivity::class.java)
             startActivity(intent)
         }
     }

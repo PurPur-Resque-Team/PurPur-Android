@@ -1,8 +1,6 @@
 package com.bibim.purpur.data.remote
 
-import com.bibim.purpur.data.model.MissionClearResponse
-import com.bibim.purpur.data.model.MissionAndAnimalResponse
-import com.bibim.purpur.data.model.SignUpResponse
+import com.bibim.purpur.data.model.*
 import com.google.gson.JsonObject
 
 
@@ -24,6 +22,17 @@ interface RemoteDataSource {
     fun getMissionsAndAnimal(
         animalIdx: Int,
         success: (MissionAndAnimalResponse) -> Unit,
+        fail: (Throwable) -> Unit
+    )
+
+    fun getIslandInfo(
+        islandIdx: Int,
+        success: (IslandInfoResponse) -> Unit,
+        fail: (Throwable) -> Unit
+    )
+
+    fun getIslandList(
+        success: (IslandListResponse) -> Unit,
         fail: (Throwable) -> Unit
     )
 }
