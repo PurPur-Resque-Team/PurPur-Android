@@ -14,7 +14,7 @@
             android:id="@+id/dialog_island_anounce_cl_background"
             android:layout_width="394dp"
             android:layout_height="280dp"
-            android:background="@drawable/img_name_bg"
+            android:background="@drawable/img_name_edit_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -11,17 +11,6 @@ data class AnimalAndMission(
     val missions: ArrayList<Mission>
 )
 
-data class AnimalInfo(
-    val animalIdx: Int,
-    val animalName: String,
-    val animalMissionCount: Int,
-    val lastMissionClear: String,
-    val animalStatus: Int,
-    val animalProgress: Int,
-    val createdAt: String,
-    val updatedAt: String
-)
-
 data class Mission(
     val missionIdx: Int,
     val fk_animalIdx: Int,
