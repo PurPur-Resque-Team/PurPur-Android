@@ -33,5 +33,7 @@ interface NetworkService {
     fun getIslandList(): Call<IslandListResponse>
 
     @PUT("/users/setUserName")
-    fun putUserName(): Call<NameResponse>
+    fun putUserName(
+        @Body userName: JsonObject
+    ): Call<NameResponse>
 }

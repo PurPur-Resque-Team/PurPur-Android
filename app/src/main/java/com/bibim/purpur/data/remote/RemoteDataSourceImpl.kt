@@ -104,11 +104,11 @@ class RemoteDataSourceImpl : RemoteDataSource {
     }
 
     override fun putUserName(
-        userName: String,
+        userName: JsonObject,
         success: (NameResponse) -> Unit,
         fail: (Throwable) -> Unit
     ) {
-        api.putUserName().enqueue(object: Callback<NameResponse>{
+        api.putUserName(userName).enqueue(object: Callback<NameResponse>{
             override fun onFailure(call: Call<NameResponse>, t: Throwable) {
                 fail(t)
             }
