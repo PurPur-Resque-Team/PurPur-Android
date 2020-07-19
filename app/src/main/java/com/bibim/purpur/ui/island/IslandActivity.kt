@@ -5,10 +5,14 @@ import android.content.Context
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
 import android.view.animation.LinearInterpolator
+import androidx.core.os.HandlerCompat.postDelayed
+import androidx.lifecycle.Observer
 import com.bibim.purpur.R
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityIslandBinding
+import com.bibim.purpur.ui.Loading
 import kotlinx.android.synthetic.main.activity_island.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -21,22 +25,36 @@ class IslandActivity :BaseActivity<ActivityIslandBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        Loading.goLoading(this)
         viewDataBinding.vm = viewModel
 
         viewModel.getIslandInfo(65)
 
+        setMusic()
+        obseve()
+    }
+
+    private fun setMusic(){
         val mediaPlayer = MediaPlayer.create(this, R.raw.purpur_bgm)
         mediaPlayer.isLooping = true
         val manager = this.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         if (!manager.isMusicActive) {
             mediaPlayer.start()
         }
+    }
 
-        val progressAnimator = ObjectAnimator.ofInt(act_main_pb,"progress",0,100)
-        progressAnimator.duration = 3000
-        val ll = LinearInterpolator()
-        progressAnimator.interpolator = ll
-        progressAnimator.start()
+    private fun obseve(){
+        viewModel.islandInfo.observe(this, Observer {
+            val progressAnimator = ObjectAnimator.ofInt(act_main_pb,"progress",0, it.islandProgress)
+            progressAnimator.duration = 5000
+            val ll = LinearInterpolator()
+            progressAnimator.interpolator = ll
+            progressAnimator.start()
+
+            val handler = Handler()
+            handler.postDelayed({ Loading.exitLoading() }, 1000)
+            Loading.exitLoading()
+        })
     }
 
 }

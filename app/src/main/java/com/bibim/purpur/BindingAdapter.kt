@@ -11,7 +11,7 @@ import com.bibim.purpur.`object`.PURPUR.Island_STATE_LIST
 @BindingAdapter("setIslandBg")
 fun ImageView.setIslandBg(status : Int) {
     if(status==0||status==1) setBackgroundResource(IslandBg_STATE_LIST[status])
-    else setBackgroundResource(IslandBg_STATE_LIST[2])
+    else setBackgroundResource(IslandBg_STATE_LIST[status])
 }
 
 @BindingAdapter("setIsland")
