@@ -1,6 +1,7 @@
 package com.bibim.purpur
 
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bibim.purpur.`object`.PURPUR.ANIMAL_STATE_LIST
