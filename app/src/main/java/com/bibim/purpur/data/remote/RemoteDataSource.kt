@@ -35,4 +35,10 @@ interface RemoteDataSource {
         success: (IslandListResponse) -> Unit,
         fail: (Throwable) -> Unit
     )
+
+    fun putUserName(
+        userName: String,
+        success: (NameResponse) -> Unit,
+        fail: (Throwable) -> Unit
+    )
 }
