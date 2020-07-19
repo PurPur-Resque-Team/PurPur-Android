@@ -47,7 +47,15 @@
 
 <br>
 
+## 📝 Architecture Pattern
+
+- MVVM 패턴
+
+- Koin 라이브러리를 통한 DI(의존성 주입)
+
+
 ## 🔑 Dependency
+
 ```kotlin
 //Retrofit 라이브러리 : https://github.com/square/retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
