@@ -1,8 +1,11 @@
 package com.bibim.purpur.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.bibim.purpur.R
+import com.bibim.purpur.`object`.PURPUR
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityButtonBinding
 import com.bibim.purpur.onlyOneClickListener
@@ -18,6 +21,11 @@ class ButtonActivity : BaseActivity<ActivityButtonBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val sharedPreferences = getSharedPreferences("USER", Context.MODE_PRIVATE)
+
+        PURPUR.USER_TOKEN = sharedPreferences.getString("TOKEN", "").toString()
+        Log.e("사용자 토큰", sharedPreferences.getString("TOKEN", "없음"))
 
         go_main.onlyOneClickListener {
             val intent = Intent(this, MainActivity::class.java)
