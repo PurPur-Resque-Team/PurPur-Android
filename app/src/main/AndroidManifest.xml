@@ -19,6 +19,11 @@
             android:screenOrientation="userLandscape"
             tools:ignore="LockedOrientationActivity"></activity>
         <activity
+            android:name=".ui.LoadingActivity"
+            android:screenOrientation="userLandscape"
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/Transparent" />
+        <activity
             android:name=".ui.name.NameActivity"
             android:screenOrientation="userLandscape"
             tools:ignore="LockedOrientationActivity" />

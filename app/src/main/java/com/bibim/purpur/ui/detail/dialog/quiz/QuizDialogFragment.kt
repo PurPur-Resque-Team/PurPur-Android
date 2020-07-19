@@ -1,21 +1,27 @@
 package com.bibim.purpur.ui.detail.dialog.quiz
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import com.bibim.purpur.R
 import com.bibim.purpur.`object`.PURPUR
 import com.bibim.purpur.`object`.QuizAnswer
 import com.bibim.purpur.databinding.DialogQuizBinding
 import com.bibim.purpur.onlyOneClickListener
+import com.bibim.purpur.ui.Loading
+import com.bibim.purpur.ui.detail.main.DetailActivity
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
+import org.json.JSONObject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuizDialogFragment : DialogFragment() {
 
@@ -24,7 +30,7 @@ class QuizDialogFragment : DialogFragment() {
         val QUIZ_TRY = ArrayList<Int>()
     }
 
-    private lateinit var quizDialogViewModel: QuizDialogViewModel
+    private val quizDialogViewModel: QuizDialogViewModel by viewModel()
     private lateinit var binding: DialogQuizBinding
     lateinit var btnArray: MutableList<QuizAnswer>
 
@@ -46,8 +52,6 @@ class QuizDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DialogQuizBinding.inflate(LayoutInflater.from(this.context), container, false)
-        quizDialogViewModel = ViewModelProvider(this).get(QuizDialogViewModel::class.java)
-
 
         btnArray = mutableListOf(
             QuizAnswer(binding.dialogQuizIvBtnZero, false, R.drawable.btn_check_zero_act),
@@ -67,6 +71,8 @@ class QuizDialogFragment : DialogFragment() {
         }
 
         quizDialogViewModel.getRandomNumbers()
+
+
 
         observeData()
         setBackground()
@@ -88,15 +94,25 @@ class QuizDialogFragment : DialogFragment() {
             btnArray[quizIndex].imageView.onlyOneClickListener {
                 if (!btnArray[quizIndex].clicked && QUIZ_TRY.size < 4) {
                     btnArray[quizIndex].imageView.setImageResource(btnArray[quizIndex].drawable)
+                    btnArray[quizIndex].imageView.isClickable = false
                     QUIZ_TRY.add(quizIndex)
                     if (QUIZ_TRY.size == 4) {
                         if (QUIZ_ANSWER == QUIZ_TRY) {
-                            quitDialog()
                             Toast.makeText(requireContext(), "정답입니다!", Toast.LENGTH_LONG).show()
+
+                            val clearMissionIdx = JSONObject()
+                            clearMissionIdx.put("missionIdx", DetailActivity.selectedCardIdx)
+                            val body =
+                                JsonParser.parseString(clearMissionIdx.toString()) as JsonObject
+                            Loading.goLoading(requireActivity())
+                            (requireActivity() as DetailActivity).detailViewModel.clearMission(
+                                3,
+                                body
+                            )
                         } else {
-                            quitDialog()
                             Toast.makeText(requireContext(), "오답입니다!", Toast.LENGTH_LONG).show()
                         }
+                            quitDialog()
                     }
                 }
             }
@@ -112,11 +128,21 @@ class QuizDialogFragment : DialogFragment() {
 
             QUIZ_ANSWER.addAll(it)
         })
+
     }
 
     private fun quitDialog() {
         QUIZ_ANSWER.clear()
         QUIZ_TRY.clear()
         dismiss()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        val parentFragment: Fragment? = parentFragment
+        if (parentFragment is DialogInterface.OnDismissListener) {
+            (parentFragment as DialogInterface.OnDismissListener?)!!.onDismiss(dialog)
+        }
+
     }
 }

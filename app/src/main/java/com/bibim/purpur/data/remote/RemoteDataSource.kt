@@ -1,10 +1,7 @@
 package com.bibim.purpur.data.remote
 
-import com.bibim.purpur.data.model.IslandInfoResponse
-import com.bibim.purpur.data.model.IslandListResponse
-import com.bibim.purpur.data.model.SignUpResponse
+import com.bibim.purpur.data.model.*
 import com.google.gson.JsonObject
-import retrofit2.Call
 
 
 interface RemoteDataSource {
@@ -15,12 +12,27 @@ interface RemoteDataSource {
         fail: (Throwable) -> Unit
     )
 
+    fun clearMission(
+        animalIdx: Int,
+        missionIdx: JsonObject,
+        success: (MissionClearResponse) -> Unit,
+        fail: (Throwable) -> Unit
+    )
+
+    fun getMissionsAndAnimal(
+        animalIdx: Int,
+        success: (MissionAndAnimalResponse) -> Unit,
+        fail: (Throwable) -> Unit
+    )
+
     fun getIslandInfo(
         islandIdx: Int,
         success: (IslandInfoResponse) -> Unit,
-        fail: (Throwable) -> Unit)
+        fail: (Throwable) -> Unit
+    )
 
     fun getIslandList(
         success: (IslandListResponse) -> Unit,
-        fail: (Throwable) -> Unit)
+        fail: (Throwable) -> Unit
+    )
 }

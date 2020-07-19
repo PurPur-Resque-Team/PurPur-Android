@@ -3,9 +3,14 @@ package com.bibim.purpur.ui.detail.dialog.quiz
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bibim.purpur.data.model.MissionClearResponse
+import com.bibim.purpur.data.repository.QuizFragmentRepository
+import com.google.gson.JsonObject
 import java.util.*
 
-class QuizDialogViewModel : ViewModel() {
+class QuizDialogViewModel(private val quizFragmentRepository: QuizFragmentRepository) :
+    ViewModel() {
+
     private val _randomNumList = MutableLiveData<Array<Int>>()
     val randomNumList: LiveData<Array<Int>> get() = _randomNumList
 
@@ -27,4 +32,5 @@ class QuizDialogViewModel : ViewModel() {
         }
         _randomNumList.value = numbers
     }
+
 }

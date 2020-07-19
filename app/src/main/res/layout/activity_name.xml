@@ -65,6 +65,7 @@
             android:lineSpacingExtra="6sp"
             android:maxLength="9"
             android:textColor="#5d5757"
+            android:maxLines="1"
             android:textSize="21sp"
             android:background="@drawable/bg_et_child_name"
             app:layout_constraintBottom_toBottomOf="parent"
