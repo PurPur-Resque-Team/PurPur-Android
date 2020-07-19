@@ -30,5 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이름 짓기 화면" />
+
+        <Button
+            android:id="@+id/island_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="섬 선택" />
     </LinearLayout>
 </layout>

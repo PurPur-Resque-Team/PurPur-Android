@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/img_bg_one"
-        tools:context=".ui.main.MainActivity">
+        tools:context=".ui.island.IslandActivity">
 
         <ImageView
             android:id="@+id/act_main_iv_back"
