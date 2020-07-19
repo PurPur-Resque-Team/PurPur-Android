@@ -1,9 +1,6 @@
 package com.bibim.purpur.di
 
-import com.bibim.purpur.data.repository.DetailRepository
-import com.bibim.purpur.data.repository.IslandRepository
-import com.bibim.purpur.data.repository.NameRepository
-import com.bibim.purpur.data.repository.QuizFragmentRepository
+import com.bibim.purpur.data.repository.*
 import org.koin.dsl.module
 
 val repositoryAppModule = module {
@@ -11,4 +8,5 @@ val repositoryAppModule = module {
     single { DetailRepository(get()) }
     single { QuizFragmentRepository(get()) }
     single { IslandRepository(get()) }
+    single { IslandListRepository(get()) }
 }

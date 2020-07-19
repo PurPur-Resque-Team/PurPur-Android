@@ -3,7 +3,7 @@ package com.bibim.purpur.data.model
 data class IslandListResponse(
     val status: Int,
     val message: String,
-    val data: IslandList
+    val data: ArrayList<IslandList>
 )
 
 data class IslandList(
