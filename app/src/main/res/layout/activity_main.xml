@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/img_bg"
+        android:background="@drawable/img_bg_one"
         tools:context=".ui.main.MainActivity">
 
         <ImageView
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/img_bg_island"
+            android:src="@drawable/img_bg_island_one"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.7"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="126dp"
             android:layout_marginBottom="105dp"
-            android:src="@drawable/btn_mole"
+            android:src="@drawable/btn_mole_one"
             app:layout_constraintBottom_toBottomOf="@id/act_main_iv_island"
             app:layout_constraintEnd_toEndOf="@id/act_main_iv_island" />
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="218dp"
             android:layout_marginBottom="125dp"
-            android:src="@drawable/btn_fox"
+            android:src="@drawable/btn_fox_one"
             app:layout_constraintBottom_toBottomOf="@id/act_main_iv_island"
             app:layout_constraintEnd_toEndOf="@id/act_main_iv_island" />
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="98dp"
             android:layout_marginEnd="136dp"
-            android:src="@drawable/btn_duck"
+            android:src="@drawable/btn_duck_one"
             app:layout_constraintEnd_toEndOf="@id/act_main_iv_island"
             app:layout_constraintTop_toTopOf="@id/act_main_iv_island" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="77dp"
             android:layout_marginTop="86dp"
-            android:src="@drawable/btn_rabbit"
+            android:src="@drawable/btn_rabbit_one"
             app:layout_constraintStart_toStartOf="@+id/act_main_iv_island"
             app:layout_constraintTop_toTopOf="@+id/act_main_iv_island" />
 
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="114dp"
             android:layout_marginBottom="56dp"
-            android:src="@drawable/btn_bear"
+            android:src="@drawable/btn_bear_one"
             app:layout_constraintBottom_toBottomOf="@id/act_main_iv_island"
             app:layout_constraintStart_toStartOf="@id/act_main_iv_island" />
 
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="186dp"
             android:layout_marginTop="77dp"
-            android:src="@drawable/btn_plant"
+            android:src="@drawable/btn_plant_one"
             app:layout_constraintStart_toStartOf="@+id/act_main_iv_island"
             app:layout_constraintTop_toTopOf="@+id/act_main_iv_island" />
 
