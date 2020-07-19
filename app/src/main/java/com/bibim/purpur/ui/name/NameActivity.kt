@@ -1,5 +1,6 @@
 package com.bibim.purpur.ui.name
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
@@ -13,6 +14,8 @@ import com.bibim.purpur.`object`.PURPUR
 import com.bibim.purpur.base.BaseActivity
 import com.bibim.purpur.databinding.ActivityNameBinding
 import com.bibim.purpur.onlyOneClickListener
+import com.bibim.purpur.ui.island.IslandActivity
+import com.bibim.purpur.ui.islandSelect.IslandSelectActivity
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import org.json.JSONObject
@@ -49,6 +52,10 @@ class NameActivity : BaseActivity<ActivityNameBinding>() {
             editor.apply()
             PURPUR.USER_TOKEN = it
             Log.e("가입한 토큰", it)
+            val intent = Intent(this, IslandSelectActivity::class.java)
+
+            intent.putExtra("nickName",viewDataBinding.actNameEtName.text.toString())
+            startActivity(intent)
         })
     }
 
@@ -65,6 +72,7 @@ class NameActivity : BaseActivity<ActivityNameBinding>() {
                     { viewDataBinding.actNameBtnSubmit.setImageResource(R.drawable.btn_name_act) },
                     200
                 )
+
             }
         }
     }
