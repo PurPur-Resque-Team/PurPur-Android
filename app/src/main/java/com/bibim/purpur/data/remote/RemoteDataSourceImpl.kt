@@ -81,7 +81,7 @@ class RemoteDataSourceImpl : RemoteDataSource {
                 call: Call<IslandInfoResponse>,
                 response: Response<IslandInfoResponse>
             ) {
-                Log.e("onRes", response.toString())
+                Log.e("onRes", response.body().toString())
                 success(response.body()!!)
             }
         })
