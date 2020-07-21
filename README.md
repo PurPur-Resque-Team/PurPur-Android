@@ -120,6 +120,11 @@
 
 <img width="638" alt="스크린샷 2020-07-19 오후 11 04 44" src="https://user-images.githubusercontent.com/37479631/87876620-4096c200-ca14-11ea-8a5a-5a03395d9f89.png">
 
+#### 시연 영상
+
+![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/45157374/87998440-e5a7bc80-cb32-11ea-8d9e-f5c1d9c5f8be.gif)
+
+
 - 초기 사용 시 회원의 닉네임을 정할 수 있다.
 
 ### 1. 미션 진행에 따라 달라지는 홈 화면
@@ -318,4 +323,7 @@ private fun setMusic(){
     }
 ```
 
+### 시연 영상(1,2,3,4,5 기능)
+
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/45157374/87998687-96ae5700-cb33-11ea-85d4-0315cefc4427.gif)
 
