@@ -51,6 +51,10 @@
 
 - MVVM 패턴
 
+- Observer pattern
+
+- Repository pattern
+
 - Koin 라이브러리를 통한 DI(의존성 주입)
 
 
@@ -118,12 +122,7 @@
 
 ### 0. 닉네임 설정
 
-<img width="638" alt="스크린샷 2020-07-19 오후 11 04 44" src="https://user-images.githubusercontent.com/37479631/87876620-4096c200-ca14-11ea-8a5a-5a03395d9f89.png">
-
-#### 시연 영상
-
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/45157374/87998440-e5a7bc80-cb32-11ea-8d9e-f5c1d9c5f8be.gif)
-
 
 - 초기 사용 시 회원의 닉네임을 정할 수 있다.
 
@@ -161,8 +160,7 @@ fun ImageView.setAnimal(idx: Int, status : Int) {
 
 ### 2. 동물별 미션 진행
 
-<img width="640" alt="스크린샷 2020-07-19 오후 11 14 37" src="https://user-images.githubusercontent.com/37479631/87876868-d0893b80-ca15-11ea-8a23-6aaaf2a93b52.png">
-<img width="640" alt="스크린샷 2020-07-19 오후 11 15 11" src="https://user-images.githubusercontent.com/37479631/87876870-d1ba6880-ca15-11ea-9270-a583c2c85a4d.png">
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/45157374/87999216-1dafff00-cb35-11ea-856b-7d58d45d4b9d.gif)
 
 - 원하는 동물을 선택해 5개의 카드 중 하나를 선택하여 미션을 수행할 수 있다.
 - 미션카드는 RecyclerView를 사용해 구현했다.
@@ -202,8 +200,7 @@ adapter = CardAdapter(object :
 
 ### 3. 미션 수행 인증 진행
 
-<img width="638" alt="스크린샷 2020-07-19 오후 11 25 26" src="https://user-images.githubusercontent.com/37479631/87877064-23172780-ca17-11ea-8ea1-de986ef200f3.png">
-
+![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/45157374/87999418-b47cbb80-cb35-11ea-8a81-7a8b31711983.gif)
 
 
 - 마구잡이로 미션 수행을 누르는 것을 방지하기 위해 랜덤 숫자를 띄워 인증을 진행한다.
@@ -250,10 +247,7 @@ private fun observeData() {
 
 ### 4. 미션 진행 상태에 따라 상황을 progress bar로 표현
 
-<img width="638" alt="스크린샷 2020-07-19 오후 11 39 49" src="https://user-images.githubusercontent.com/37479631/87877415-257a8100-ca19-11ea-8beb-f10bddc5e148.png">
-
-<img width="639" alt="스크린샷 2020-07-19 오후 11 48 16" src="https://user-images.githubusercontent.com/37479631/87877631-53ac9080-ca1a-11ea-867b-e0900cb2166e.png">
-
+![ezgif com-video-to-gif (5)](https://user-images.githubusercontent.com/45157374/87999595-4b497800-cb36-11ea-95c3-6c96173ee6e6.gif)
 
 
 - 섬과 동물별 미션 진행 상태를 직관적으로 확인 가능하도록 progress bar로 표시한다.
@@ -322,8 +316,4 @@ private fun setMusic(){
         }
     }
 ```
-
-### 시연 영상(1,2,3,4,5 기능)
-
-![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/45157374/87998687-96ae5700-cb33-11ea-85d4-0315cefc4427.gif)
 
