@@ -128,10 +128,8 @@
 
 ### 1. 미션 진행에 따라 달라지는 홈 화면
 
-<img width="638" alt="스크린샷 2020-07-19 오후 11 10 20" src="https://user-images.githubusercontent.com/37479631/87876728-1abded00-ca15-11ea-8c82-e6dcf5faa277.png">
-<img width="638" alt="스크린샷 2020-07-19 오후 11 10 30" src="https://user-images.githubusercontent.com/37479631/87876731-1eea0a80-ca15-11ea-89aa-0f297236d4c2.png">
-<img width="638" alt="스크린샷 2020-07-19 오후 11 10 37" src="https://user-images.githubusercontent.com/37479631/87876734-1f82a100-ca15-11ea-8011-34bc5fd973bb.png">
-<img width="638" alt="스크린샷 2020-07-19 오후 11 10 42" src="https://user-images.githubusercontent.com/37479631/87876737-214c6480-ca15-11ea-8a55-8e71a2fdf043.png">
+![ezgif com-video-to-gif (6)](https://user-images.githubusercontent.com/45157374/87999689-995e7b80-cb36-11ea-940c-e5fe80dd656e.gif)
+
 
 - 미션 진행 상황에 따라 동물, 섬, 배경이 달라진다.
 - BindingAdapter에 확장함수를 구현하여 서버에서 받은 상태에 따라 이미지를 교체한다.
